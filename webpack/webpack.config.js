@@ -75,7 +75,8 @@ const config = {
     extensions: ['*', '.js', '.css', '.html'],
     modules: ['src', 'node_modules'],
     alias: {
-      app: path.resolve(rootFolder, 'src/app')
+      app: path.resolve(rootFolder, 'src/app'),
+      leaflet_assets: path.resolve(rootFolder, 'node_modules/leaflet/dist/')
     }
   }
 };

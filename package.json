@@ -24,20 +24,11 @@
       "command": "node ./src/server/start.babel.js"
     }
   },
-  "author": "Roman Krasevych <krasevych@gmail.com>",
+  "author": "Simon Kerr",
   "keywords": [
     "react",
-    "isomorphic",
-    "universal",
-    "styled components",
-    "webpack",
-    "express",
-    "hot reloading",
-    "react-hot-reloader",
-    "redux",
-    "starter",
-    "boilerplate",
-    "babel"
+    "maps",
+    "leafletjs"
   ],
   "license": "MIT",
   "dependencies": {
@@ -46,11 +37,14 @@
     "express": "^4.14.0",
     "global": "^4.3.1",
     "immutable": "^3.8.1",
+    "leaflet": "^1.0.3",
     "lodash": "^4.17.4",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-form": "^0.9.1",
     "react-hot-loader": "3.0.0-beta.6",
+    "react-leaflet": "^1.2.0",
+    "react-leaflet-universal": "^1.0.0",
     "react-redux": "^5.0.1",
     "react-router": "3.0.2",
     "react-router-redux": "^4.0.7",
