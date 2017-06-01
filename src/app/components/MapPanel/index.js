@@ -1,7 +1,19 @@
 import React, { PropTypes, Component } from 'react';
+// import L from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet-universal';
 import 'leaflet_assets/leaflet.css';
+import './style.css';
 import Wrapper from './Wrapper';
+
+// const configureIcons = () => {
+//   delete L.Icon.Default.prototype._getIconUrl();
+//
+//   L.Icon.Default.mergeOptions({
+//     iconRetinaUrl: require('leaflet_assets/images/marker-icon-2x.png'),
+//     iconUrl: require('leaflet_assets/images/marker-icon.png'),
+//     shadowUrl: require('leaflet_assets/images/marker-shadow.png'),
+//   });
+// };
 
 export default class MapPanel extends Component {
   constructor(props) {
@@ -12,6 +24,10 @@ export default class MapPanel extends Component {
       zoom: 13,
       tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
     };
+  }
+
+  componentWillMount() {
+    // configureIcons();
   }
 
   render() {
