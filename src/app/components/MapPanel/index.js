@@ -28,14 +28,15 @@ export default class MapPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: 51.505,
-      lng: -0.09,
-      zoom: 5,
+      lat: 300,
+      lng: 150,
+      zoom: 1,
       tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       bgBounds: [
-        [0, 0],
-        [540, 491]
-      ]
+        [-150, -150],
+        [300, 300]
+      ],
+      bgImageUrl: bgImage
     };
   }
 
@@ -50,7 +51,7 @@ export default class MapPanel extends Component {
         <Map center={position} zoom={this.state.zoom}>
           <ImageOverlay
             bounds={this.state.bgBounds}
-            url={bgImage}
+            url={this.state.bgImageUrl}
           />
           {/*
           <TileLayer
