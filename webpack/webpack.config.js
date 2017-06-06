@@ -76,6 +76,7 @@ const config = {
     modules: ['src', 'node_modules'],
     alias: {
       app: path.resolve(rootFolder, 'src/app'),
+      assets: path.resolve(rootFolder, 'static/assets'),
       leaflet_assets: path.resolve(rootFolder, 'node_modules/leaflet/dist/')
     }
   }

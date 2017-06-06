@@ -1,9 +1,18 @@
 import React, { PropTypes, Component } from 'react';
 // import L from 'leaflet';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet-universal';
+import {
+  Map,
+  TileLayer,
+  ImageOverlay,
+  Marker,
+  Popup
+} from 'react-leaflet-universal';
+import bgImage from 'assets/images/blue-print.jpg';
+
 import 'leaflet_assets/leaflet.css';
 import './style.css';
 import Wrapper from './Wrapper';
+
 
 // const configureIcons = () => {
 //   delete L.Icon.Default.prototype._getIconUrl();
@@ -21,8 +30,12 @@ export default class MapPanel extends Component {
     this.state = {
       lat: 51.505,
       lng: -0.09,
-      zoom: 13,
-      tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+      zoom: 5,
+      tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+      bgBounds: [
+        [0, 0],
+        [540, 491]
+      ]
     };
   }
 
@@ -35,6 +48,11 @@ export default class MapPanel extends Component {
     return (
       <Wrapper>
         <Map center={position} zoom={this.state.zoom}>
+          <ImageOverlay
+            bounds={this.state.bgBounds}
+            url={bgImage}
+          />
+          {/*
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url={this.state.tileLayer}
@@ -44,6 +62,7 @@ export default class MapPanel extends Component {
               <span>A pretty CSS3 popup. <br /> Easily customizable.</span>
             </Popup>
           </Marker>
+          */}
         </Map>
       </Wrapper>
     );
