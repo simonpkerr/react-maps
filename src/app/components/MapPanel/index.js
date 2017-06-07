@@ -2,9 +2,8 @@ import React, { PropTypes, Component } from 'react';
 // import L from 'leaflet';
 import {
   Map,
-  TileLayer,
   ImageOverlay,
-  Marker,
+  Rectangle,
   Popup
 } from 'react-leaflet-universal';
 import bgImage from 'assets/images/blue-print.jpg';
@@ -28,13 +27,17 @@ export default class MapPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: 300,
+      lat: 150,
       lng: 150,
       zoom: 1,
       tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-      bgBounds: [
+      imageBounds: [
         [-150, -150],
         [300, 300]
+      ],
+      mapBounds: [
+        [50, 50],
+        [200, 200]
       ],
       bgImageUrl: bgImage
     };
@@ -46,13 +49,18 @@ export default class MapPanel extends Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
+    const rectangleBounds = [[0, 100], [300, 400]];
     return (
       <Wrapper>
-        <Map center={position} zoom={this.state.zoom}>
+        <Map
+          center={position}
+          zoom={this.state.zoom}
+        >
           <ImageOverlay
-            bounds={this.state.bgBounds}
+            bounds={this.state.imageBounds}
             url={this.state.bgImageUrl}
           />
+          <Rectangle bounds={rectangleBounds} />
           {/*
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
