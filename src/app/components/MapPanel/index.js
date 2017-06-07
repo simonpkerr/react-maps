@@ -41,26 +41,34 @@ export default class MapPanel extends Component {
       ],
       bgImageUrl: bgImage
     };
+
+    this.handleMapClick = this.handleMapClick.bind(this);
   }
 
-  componentWillMount() {
-    // configureIcons();
+  handleMapClick(e) {
+    const a = this;
+    console.log(e);
   }
 
   render() {
     const position = [this.state.lat, this.state.lng];
-    const rectangleBounds = [[0, 100], [300, 400]];
+    // [y, x]
+    const rectangleBounds = [[65, -87], [-51, -26]];
+    // [[51.49, -0.08], [51.5, -0.06]];
     return (
       <Wrapper>
         <Map
           center={position}
           zoom={this.state.zoom}
+          onClick={this.handleMapClick}
         >
           <ImageOverlay
             bounds={this.state.imageBounds}
             url={this.state.bgImageUrl}
           />
-          <Rectangle bounds={rectangleBounds} />
+          <Rectangle
+            bounds={rectangleBounds}
+          />
           {/*
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
